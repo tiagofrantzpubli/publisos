@@ -34,7 +34,11 @@ param(
 
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName PresentationCore, WindowsBase
-if (-not $Logo) { $Logo = Join-Path $PSScriptRoot 'fonte\publi-original.png' }
+if (-not $Logo) {
+    # Prefere o logo PubliSOS (com o SOS); senao, o logo da Publi original.
+    $Logo = Join-Path $PSScriptRoot 'fonte\logo-publisos.png'
+    if (-not (Test-Path -LiteralPath $Logo)) { $Logo = Join-Path $PSScriptRoot 'fonte\publi-original.png' }
+}
 if (-not $Servidor -and -not $Chave) {
     $cfgLocal = Join-Path $PSScriptRoot 'servidor.local.json'
     if (Test-Path -LiteralPath $cfgLocal) {
