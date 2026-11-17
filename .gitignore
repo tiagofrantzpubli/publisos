@@ -60,3 +60,9 @@ flutter/web/
 /third_party/libdrmtap/
 # Local git worktrees
 .worktrees/
+
+# PubliSOS
+build-local/marca/servidor.local.json
+libs/portable/data.bin
+libs/portable/app_metadata.toml
+
